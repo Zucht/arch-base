@@ -78,7 +78,7 @@ jobs:
           max_attempts: 3
           retry_wait_seconds: 120
           command: |
-            docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:${{ github.event.inputs.tags }}
+            docker push ${{ github.repository }}:${{ github.event.inputs.tags }}
       - name: Push Docker image to GitHub Container Registry (GHCR)
         uses: nick-invision/retry@v2.4.0
         with:
